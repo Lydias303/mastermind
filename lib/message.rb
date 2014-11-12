@@ -2,7 +2,7 @@ class Message
 
 
   def instructions
-    " The computer will select a set of four colors at random, duplicates may be possible.\n Your task will be to guess the colors and order in which they are placed.\n You will be prompted to enter your guess using the first letter of the color, for example [rrbg].\n After each guess the correct number of colors guessed, regardless of position, will be messaged.\n The number of correctly placed colors will also be messageed.\n Using that information and multiple guesses you will be able to discover the answer and win!"
+    " The computer will select a set of four colors at random, duplicates may be possible.\n Your task will be to guess the colors and order in which they are placed.\n You will be prompted to enter your guess using the first letter of the color, for example [rrbg].\n After each guess the correct number of colors guessed, regardless of position, will be messaged.\n The number of correctly placed colors will also be messaged.\n Using that information and multiple guesses you will be able to discover the answer and win!"
   end
 
   def guess_stats(color_count, position_count, guess_counter)
@@ -10,7 +10,9 @@ class Message
   end
 
   def won
-    "YOU WON!!!"
+    "      YOU WON!!!\n
+    Want to play again?! press (p)lay\n
+    Had enough? press (q)uit"
   end
 
   def end_of_game
@@ -18,7 +20,9 @@ class Message
   end
 
   def are_you_sure_quit
-    "Are you sure you want to quit? Enter (q) to quit or (p) to play again!"
+    "YOU HAVE ENDED YOUR CURRENT GAME!\n
+    Would you like to start a new game!? (p)\n
+    Exit the game? (q)"
   end
 
   def player_guess_count
@@ -43,7 +47,7 @@ class Message
   end
 
   def invalid_message
-    "Invalid Message! Please input (p)lay (i)nstructions or (q)uit"
+    "Invalid entry! Please input (p)lay (i)nstructions or (q)uit"
   end
 
   def invalid_guess

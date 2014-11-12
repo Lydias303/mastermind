@@ -2,23 +2,20 @@ class Sequence
   attr_accessor :colors
 
   def initialize
-    @colors   = ['r','g','b','y']  # => ["r", "g", "b", "y"]
-
+    @colors   = ['r','g','b','y']
   end
 
   def randomizer
-    colors.map do    # => ["r", "g", "b", "y"]
-      colors.sample  # => "y", "y", "b", "r"
-    end              # => ["y", "y", "b", "r"]
+    colors.map do
+      colors.sample
+    end
   end
 
   def solution
-    @solution ||= randomizer  # => ["y", "y", "b", "r"]
+    @solution ||= randomizer
   end
 
   def guess_counter
     player_guess += 1
   end
 end
-
-#.new.solution  # => ["y", "y", "b", "r"]
