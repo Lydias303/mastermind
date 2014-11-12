@@ -31,6 +31,7 @@ class CLI
       game.play
     when instructions?
       outstream.puts message.instructions
+      outstream.puts message.message_after_instructions
     when quit?
       outstream.puts message.end_of_game
     else
