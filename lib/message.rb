@@ -1,3 +1,4 @@
+require 'colorize'
 class Message
 
   def instructions
@@ -27,7 +28,12 @@ class Message
   end
 
   def intro_message
-    "Welcome to MASTERMIND\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?"
+    "___  ___          _                      _           _
+|  \/  |         | |                    (_)         | |
+| .  . | __ _ ___| |_ ___ _ __ _ __ ___  _ _ __   __| |
+| |\/| |/ _` / __| __/ _ \ '__| '_ ` _ \| | '_ \ / _` |
+| |  | | (_| \__ \ ||  __/ |  | | | | | | | | | | (_| |
+\_|  |_/\__,_|___/\__\___|_|  |_| |_| |_|_|_| |_|\__,_|.\nWould you like to (p)lay, read the (i)nstructions, or (q)uit?".magenta
   end
 
   def game_start_message
