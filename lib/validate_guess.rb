@@ -8,9 +8,7 @@ class ValidateGuess
   end
 
   def valid?
-    guess.all? do |char|
-      valid_colors.include?(char)
-    end
+    guess.all? { |char| valid_colors.include?(char) }
   end
 
   def too_long?

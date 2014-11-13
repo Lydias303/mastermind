@@ -18,26 +18,26 @@ class Game
   def play
     until quit? || won?
       @player_guess = @instream.gets.chomp.chars
-      if quit?
-        outstream.puts message.are_you_sure_quit.green
-      elsif too_long?
-        outstream.puts message.too_long.red
-      elsif too_short?
-        outstream.puts message.too_short.red
-      elsif invalid_colors?
-        outstream.puts message.invalid_guess.red
-      elsif won?
-        outstream.puts message.won.magenta
-      else
-        color_count    = MatchCheck.color_count(player_guess, solution)
-        position_count = MatchCheck.position_count(player_guess, solution)
-        increase_guess_counter
-        outstream.puts message.guess_stats(color_count, position_count, guess_counter)
+      case
+      when quit?              then  outstream.puts message.are_you_sure_quit.green
+      when too_long?          then  outstream.puts message.too_long.red
+      when too_short?         then  outstream.puts message.too_short.red
+      when invalid_colors?    then  outstream.puts message.invalid_guess.red
+      when won?               then  outstream.puts message.won.magenta
+      else feedback
       end
     end
   end
+
   def quit?
     @player_guess == ["q"]
+  end
+
+  def feedback
+    color_count    = MatchCheck.color_count(player_guess, solution)
+    position_count = MatchCheck.position_count(player_guess, solution)
+    increase_guess_counter
+    outstream.puts message.guess_stats(color_count, position_count, guess_counter)
   end
 
   def too_long?
