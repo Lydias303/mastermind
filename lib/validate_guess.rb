@@ -15,4 +15,12 @@ class ValidateGuess
       valid_colors.include?(char)
     end
   end
+
+  def too_long?
+    @guess.length > 4
+  end
+  def too_short?
+    @guess.length < 4
+  end
+
 end

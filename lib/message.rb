@@ -6,7 +6,7 @@ class Message
   end
 
   def guess_stats(color_count, position_count, guess_counter)
-    "You got #{color_count} correct colors and #{position_count} correct positions and you have made #{guess_counter} guess"
+    "You got #{color_count} correct colors and #{position_count} correct positions and you have made #{guess_counter} guess".yellow
   end
 
   def won

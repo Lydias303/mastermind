@@ -21,7 +21,7 @@ class CLI
 
   end
 
-  private
+  # private
 
   def process_initial_commands
     case

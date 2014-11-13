@@ -12,7 +12,7 @@ class SequenceTest < Minitest::Test
   def test_it_has_a_solution
     sequence = Sequence.new
     sequence.stub :randomizer, ['g','g','b','b'] do
-    assert_equal ['g','g','b','b'], sequence.solution
-  end
+      assert_equal ['g','g','b','b'], sequence.solution
+    end
   end
 end
