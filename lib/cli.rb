@@ -21,18 +21,22 @@ class CLI
 
   def process_initial_commands
     case
-    when play?
-      outstream.puts message.play
-      game = Game.new(instream, outstream, message)
-      game.play
-    when instructions?
-      outstream.puts message.instructions
-      outstream.puts message.message_after_instructions
-    when quit?
-      outstream.puts message.end_of_game
-    else
-      outstream.puts message.invalid_message
+    when play?          then start_game
+    when instructions?  then show_instructions
+    when quit?          then outstream.puts message.end_of_game
+    else  outstream.puts message.invalid_message
     end
+  end
+
+  def start_game
+    outstream.puts message.play
+    game = Game.new(instream, outstream, message)
+    game.play
+  end
+
+  def show_instructions
+    outstream.puts message.instructions
+    outstream.puts message.message_after_instructions
   end
 
   def play?
