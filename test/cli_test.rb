@@ -1,6 +1,3 @@
-gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
 require_relative 'test_helper'
 require 'cli'
 
@@ -9,6 +6,8 @@ class CLITest < Minitest::Test
     cli = CLI.new(nil, nil)
     cli.stub :command, 'q' do
       assert cli.quit?
+      refute cli.play?
+      refute cli.instructions?
     end
   end
 
@@ -16,6 +15,8 @@ class CLITest < Minitest::Test
     cli = CLI.new(nil, nil)
     cli.stub :command, 'p' do
       assert cli.play?
+      refute cli.quit?
+      refute cli.instructions?
     end
   end
 
@@ -24,6 +25,7 @@ class CLITest < Minitest::Test
     cli.stub :command, 'i' do
       assert cli.instructions?
       refute cli.play?
+      refute cli.quit?
     end
   end
 end

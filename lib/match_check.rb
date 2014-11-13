@@ -1,13 +1,10 @@
-require_relative 'sequence'  # => true
-    # => true
+require_relative 'sequence'  
 
 class MatchCheck
 
   def self.color_count(guess, solution)
     count = 0
     copy = solution.dup
-    # guess = Guess.new
-    # new_array = guess.convert_user_input
     guess.each do |color|
       if copy.include?(color)
         count += 1

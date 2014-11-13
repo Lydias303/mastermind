@@ -6,7 +6,6 @@ class Game
 
   attr_reader :instream, :outstream, :message, :solution, :player_guess, :color_count, :guess_counter
 
-
   def initialize(instream, outstream, message)
     @solution = Sequence.new.solution
     @player_guess = ""
@@ -17,7 +16,6 @@ class Game
   end
 
   def play
-    puts @solution.join
     until quit? || won?
       @player_guess = @instream.gets.chomp.chars
       if quit?
@@ -25,7 +23,7 @@ class Game
       elsif too_long?
         outstream.puts message.too_long.red
       elsif too_short?
-          outstream.puts message.too_short.red
+        outstream.puts message.too_short.red
       elsif invalid_colors?
         outstream.puts message.invalid_guess.red
       elsif won?
@@ -47,7 +45,7 @@ class Game
   end
 
   def too_short?
-    ValidateGuess.new(@player_guess).too_long?
+    ValidateGuess.new(@player_guess).too_short?
   end
 
   def invalid_colors?
@@ -61,4 +59,5 @@ class Game
   def increase_guess_counter
     @guess_counter += 1
   end
+
 end

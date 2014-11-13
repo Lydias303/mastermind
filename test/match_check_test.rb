@@ -18,7 +18,4 @@ class MatchCheckTest < Minitest::Test
     match = MatchCheck.new
     assert_equal 4, match.position_count(guess, solution)
   end
-
-
-
 end

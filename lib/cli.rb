@@ -9,7 +9,6 @@ class CLI
     @outstream = outstream
     @command = ""
     @message = Message.new
-
   end
 
   def call
@@ -18,10 +17,7 @@ class CLI
       @command = instream.gets.strip
       process_initial_commands
     end
-
   end
-
-  # private
 
   def process_initial_commands
     case
@@ -29,7 +25,6 @@ class CLI
       outstream.puts message.play
       game = Game.new(instream, outstream, message)
       game.play
-      #@command = "q"
     when instructions?
       outstream.puts message.instructions
       outstream.puts message.message_after_instructions
